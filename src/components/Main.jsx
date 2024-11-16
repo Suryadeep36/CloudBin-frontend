@@ -10,7 +10,7 @@ export default function Main() {
   const [file, setFile] = useState("");
   const [allFiles, setAllFiles] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:3000/getAllFiles")
+    fetch("https://cloudbin-backend.onrender.com/getAllFiles")
       .then((res) => {
         return res.json();
       })
@@ -38,7 +38,7 @@ export default function Main() {
         data: encodedFile,
       };
       try {
-        const resp = await fetch("http://localhost:3000/uploadFile", {
+        const resp = await fetch("https://cloudbin-backend.onrender.com/uploadFile", {
           method: "POST",
           body: JSON.stringify(payload),
           headers: {
@@ -54,7 +54,7 @@ export default function Main() {
       }
     }
     if (i == chunkedFiles.length) {
-      const res = await fetch("http://localhost:3000/processFile");
+      const res = await fetch("https://cloudbin-backend.onrender.com/processFile");
       res.json().then((data) => {
         alert(data.msg);
       });

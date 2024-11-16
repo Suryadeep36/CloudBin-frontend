@@ -8,7 +8,7 @@ export default function FileView(props) {
     console.log("Please download " + props.fileName);
     let encodedFiles = [];
     for(let i = 0; i < props.numberOfChunks; i++){
-      await fetch("http://localhost:3000/getAttechmentUrlById", {
+      await fetch("https://cloudbin-backend.onrender.com/getAttechmentUrlById", {
         method: "POST",
         body: JSON.stringify({
           fileName: props.fileName,
@@ -46,7 +46,7 @@ export default function FileView(props) {
   async function handleDelete() {
     console.log("Please delete " + props.fileName);
     for(let i = 0; i < props.numberOfChunks; i++){
-      await fetch("http://localhost:3000/deleteFile", {
+      await fetch("https://cloudbin-backend.onrender.com/deleteFile", {
         method: "POST",
         body: JSON.stringify({
           fileName: props.fileName,
